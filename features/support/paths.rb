@@ -5,7 +5,9 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
     
-    when /^details page for \".+"$/ then '/movies'  
+    when /^the details page for "([^"]*)"$/
+      id = Movie.find_by_title("#{$1}").id
+      "/movies/#{id}"
     
     else
       begin
