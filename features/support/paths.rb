@@ -8,7 +8,11 @@ module NavigationHelpers
     when /^the details page for "([^"]*)"$/
       id = Movie.find_by_title("#{$1}").id
       "/movies/#{id}"
-    
+      
+    when /^the edit page for "([^"]*)"$/
+      id = Movie.find_by_title("#{$1}").id
+      "/movies/#{id}/edit"
+      
     else
       begin
         page_name =~ /^the (.*) page$/
