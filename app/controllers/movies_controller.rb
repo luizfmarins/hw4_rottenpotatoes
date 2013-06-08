@@ -64,7 +64,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def movies_with_same_director
+  def find_movies_with_same_director
   end
   
 end
