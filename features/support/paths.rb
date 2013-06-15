@@ -3,7 +3,7 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      '/movies'
     
     when /^the details page for "([^"]*)"$/
       id = Movie.find_by_title("#{$1}").id
@@ -12,6 +12,10 @@ module NavigationHelpers
     when /^the edit page for "([^"]*)"$/
       id = Movie.find_by_title("#{$1}").id
       "/movies/#{id}/edit"
+      
+    when /^the Similar Movies page for "([^"]*)"$/
+      id = Movie.find_by_title("#{$1}").id
+      "/movies/find_movies_with_same_director/#{id}"
       
     else
       begin
